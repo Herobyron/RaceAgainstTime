@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class GoalBlock : MonoBehaviour
 {
-    [Tooltip("Panel Displayed When the player wins")]
-    [SerializeField]
-    private GameObject TheVicotryPanel = null;
+
 
 
 
@@ -15,7 +13,7 @@ public class GoalBlock : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            TheVicotryPanel.SetActive(true);
+            FindObjectOfType<LevelManager>().LevelComplete();
         }
     }
 
