@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
 
     private bool PlayerAlive = true;
 
-    Data GameData;
+    private Data GameData;
 
 
     [Tooltip("this is the end screen UI object")]
@@ -41,6 +41,10 @@ public class LevelManager : MonoBehaviour
 
     private bool EndReached = false;
 
+    public bool MainMenu = false;
+
+    float CurrentLevelTime = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,47 +56,86 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
 
-        if (PlayerAlive)
+        if (!MainMenu)
         {
-            if(!TimerEnd)
+            if (PlayerAlive)
             {
-                float T = Time.time - StartTime;
-
-                 Minutes = ((int)T / 60).ToString();
-
-                 Seconds = (T % 60).ToString("f2");
-
-                TimerText.text = Minutes + ":" + Seconds;
-
-                if((int)T / 60 >= LevelTime)
+                if (!TimerEnd)
                 {
-                    TimerEnd = true;
-                    TimerText.gameObject.SetActive(false);
+                    CurrentLevelTime = Time.time - StartTime;
+
+                    Minutes = ((int)CurrentLevelTime / 60).ToString();
+
+                    Seconds = (CurrentLevelTime % 60).ToString("f2");
+
+                    TimerText.text = Minutes + ":" + Seconds;
+
+                    if ((int)CurrentLevelTime / 60 >= LevelTime)
+                    {
+                        TimerEnd = true;
+                        TimerText.gameObject.SetActive(false);
+                        EndScreenObject.SetActive(true);
+                        EndScreenObject.GetComponent<EndScreenUI>().LoseScreen(Minutes, Seconds);
+                    }
+                }
+
+                if (ThePlayer.GetComponent<Player>().ReturnHealth() < 100)
+                {
+                    PlayerAlive = false;
+                    Destroy(ThePlayer);
                     EndScreenObject.SetActive(true);
                     EndScreenObject.GetComponent<EndScreenUI>().LoseScreen(Minutes, Seconds);
                 }
-            }
 
-            if (ThePlayer.GetComponent<Player>().ReturnHealth() < 100)
-            {
-                PlayerAlive = false;
-                Destroy(ThePlayer);
-                EndScreenObject.SetActive(true);
-                EndScreenObject.GetComponent<EndScreenUI>().LoseScreen(Minutes, Seconds);
-            }
+                if (EndReached)
+                {
+                    PlayerAlive = false;
+                    Destroy(ThePlayer);
+                    EndScreenObject.SetActive(true);
+                    EndScreenObject.GetComponent<EndScreenUI>().WinScreen(Minutes, Seconds);
 
-            if(EndReached)
-            {
-                Destroy(ThePlayer);
-                EndScreenObject.SetActive(true);
-                EndScreenObject.GetComponent<EndScreenUI>().WinScreen(Minutes, Seconds);
+                    switch (LevelNumber)
+                    {
+                        case (1):
+                            {
+                                GameData.LevelOneTime = CurrentLevelTime;
+                                GameData.LevelOneComplete = true;
+                                break;
+                            }
+                        case (2):
+                            {
+                                GameData.LevelTwoTime = CurrentLevelTime;
+                                break;
+                            }
+                        case (3):
+                            {
+                                GameData.LevelThreeTime = CurrentLevelTime;
+                                break;
+                            }
+                        case (4):
+                            {
+                                GameData.LevelFourTime = CurrentLevelTime;
+                                break;
+                            }
+                        case (5):
+                            {
+                                GameData.LevelFiveTime = CurrentLevelTime;
+                                break;
+                            }
+                        
+                    }
+
+                    Save();
+                }
             }
         }
     }
 
+
     public void LevelComplete()
     {
         EndReached = true;
+
     }
 
     public void LoadMainMenu()
@@ -157,11 +200,20 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void SetLevelNumber(int LevelNum)
+    {
+        LevelNumber = LevelNum;
+    }
+
+    public Data ReturnPlayerData()
+    {
+        return GameData;
+    }
 }
 
 
 [System.Serializable]
-class Data
+public class Data
 {
 
     // the bools for the when the level is completed
