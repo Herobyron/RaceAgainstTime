@@ -53,6 +53,7 @@ public class ThirdPersonMovement : MonoBehaviour
         if(Direction.magnitude >= 0.01f)
         {
             float TargetAngle = Mathf.Atan2(Direction.x, Direction.z) * Mathf.Rad2Deg + Camera.eulerAngles.y;
+
             float Angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, TargetAngle, ref TurnSmoothVelocity, TurnSmoothTime);
 
             transform.rotation = Quaternion.Euler(0f, Angle, 0f);
