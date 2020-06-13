@@ -82,6 +82,8 @@ public class LevelManager : MonoBehaviour
                 if (ThePlayer.GetComponent<Player>().ReturnHealth() < 100)
                 {
                     PlayerAlive = false;
+                    TimerEnd = true;
+                    TimerText.gameObject.SetActive(false);
                     Destroy(ThePlayer);
                     EndScreenObject.SetActive(true);
                     EndScreenObject.GetComponent<EndScreenUI>().LoseScreen(Minutes, Seconds);
@@ -90,6 +92,8 @@ public class LevelManager : MonoBehaviour
                 if (EndReached)
                 {
                     PlayerAlive = false;
+                    TimerEnd = true;
+                    TimerText.gameObject.SetActive(false);
                     Destroy(ThePlayer);
                     EndScreenObject.SetActive(true);
                     EndScreenObject.GetComponent<EndScreenUI>().WinScreen(Minutes, Seconds);
