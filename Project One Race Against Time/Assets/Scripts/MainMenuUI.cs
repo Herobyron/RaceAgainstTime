@@ -56,7 +56,7 @@ public class MainMenuUI : MonoBehaviour
 
                         TimeTaken.text = Mins + ":" + Seconds;
 
-                        TimeToCompleteLevel.text = "3 mins";
+                        TimeToCompleteLevel.text = "2 mins";
 
                         LevelCompleted.gameObject.SetActive(true);
                         TimeTaken.gameObject.SetActive(true);
@@ -68,7 +68,7 @@ public class MainMenuUI : MonoBehaviour
                     {
                         LevelCompleted.text = "Level InComplete";
                         TimeTaken.text = "0:0.0";
-                        TimeToCompleteLevel.text = "3 mins";
+                        TimeToCompleteLevel.text = "2 mins";
 
                         LevelCompleted.gameObject.SetActive(true);
                         TimeTaken.gameObject.SetActive(true);
@@ -81,10 +81,142 @@ public class MainMenuUI : MonoBehaviour
 
                     break;
                 }
+            case (2):
+                {
+                    if(TheManager.ReturnPlayerData().LevelTwoComplete)
+                    {
+                        LevelCompleted.text = "Level Completed";
+
+                        string Mins = ((int)TheManager.ReturnPlayerData().LevelTwoTime / 60).ToString();
+                        string Seconds = (TheManager.ReturnPlayerData().LevelTwoTime % 60).ToString("f2");
+
+                        TimeTaken.text = Mins + ":" + Seconds;
+
+                        TimeToCompleteLevel.text = "2 Mins";
+
+                        LevelCompleted.gameObject.SetActive(true);
+                        TimeTaken.gameObject.SetActive(true);
+                        TimeToCompleteLevel.gameObject.SetActive(true);
+                        StartGameButton.SetActive(true);
+                    }
+                    else
+                    {
+                        LevelCompleted.text = "Level InComplete";
+                        TimeTaken.text = "0:0.0";
+                        TimeToCompleteLevel.text = "2 mins";
+
+                        LevelCompleted.gameObject.SetActive(true);
+                        TimeTaken.gameObject.SetActive(true);
+                        TimeToCompleteLevel.gameObject.SetActive(true);
+                        StartGameButton.SetActive(true);
+                    }
+                    break;
+                }
+            case (3):
+                {
+                    if (TheManager.ReturnPlayerData().LevelThreeComplete)
+                    {
+                        LevelCompleted.text = "Level Completed";
+
+                        string Mins = ((int)TheManager.ReturnPlayerData().LevelThreeTime / 60).ToString();
+                        string Seconds = (TheManager.ReturnPlayerData().LevelThreeTime % 60).ToString("f2");
+
+                        TimeTaken.text = Mins + ":" + Seconds;
+
+                        TimeToCompleteLevel.text = "4 Mins";
+
+                        LevelCompleted.gameObject.SetActive(true);
+                        TimeTaken.gameObject.SetActive(true);
+                        TimeToCompleteLevel.gameObject.SetActive(true);
+                        StartGameButton.SetActive(true);
+                    }
+                    else
+                    {
+                        LevelCompleted.text = "Level InComplete";
+                        TimeTaken.text = "0:0.0";
+                        TimeToCompleteLevel.text = "3 mins";
+
+                        LevelCompleted.gameObject.SetActive(true);
+                        TimeTaken.gameObject.SetActive(true);
+                        TimeToCompleteLevel.gameObject.SetActive(true);
+                        StartGameButton.SetActive(true);
+                    }
+                    break;
+                }
+            case (4):
+                {
+                    if (TheManager.ReturnPlayerData().LevelFourComplete)
+                    {
+                        LevelCompleted.text = "Level Completed";
+
+                        string Mins = ((int)TheManager.ReturnPlayerData().LevelFourTime / 60).ToString();
+                        string Seconds = (TheManager.ReturnPlayerData().LevelFourTime % 60).ToString("f2");
+
+                        TimeTaken.text = Mins + ":" + Seconds;
+
+                        TimeToCompleteLevel.text = "3 Mins";
+
+                        LevelCompleted.gameObject.SetActive(true);
+                        TimeTaken.gameObject.SetActive(true);
+                        TimeToCompleteLevel.gameObject.SetActive(true);
+                        StartGameButton.SetActive(true);
+                    }
+                    else
+                    {
+                        LevelCompleted.text = "Level InComplete";
+                        TimeTaken.text = "0:0.0";
+                        TimeToCompleteLevel.text = "3 mins";
+
+                        LevelCompleted.gameObject.SetActive(true);
+                        TimeTaken.gameObject.SetActive(true);
+                        TimeToCompleteLevel.gameObject.SetActive(true);
+                        StartGameButton.SetActive(true);
+                    }
+                    break;
+                }
+            case (5):
+                {
+                    if (TheManager.ReturnPlayerData().LevelFiveComplete)
+                    {
+                        LevelCompleted.text = "Level Completed";
+
+                        string Mins = ((int)TheManager.ReturnPlayerData().LevelFiveTime / 60).ToString();
+                        string Seconds = (TheManager.ReturnPlayerData().LevelFiveTime % 60).ToString("f2");
+
+                        TimeTaken.text = Mins + ":" + Seconds;
+
+                        TimeToCompleteLevel.text = "2 Mins";
+
+                        LevelCompleted.gameObject.SetActive(true);
+                        TimeTaken.gameObject.SetActive(true);
+                        TimeToCompleteLevel.gameObject.SetActive(true);
+                        StartGameButton.SetActive(true);
+                    }
+                    else
+                    {
+                        LevelCompleted.text = "Level InComplete";
+                        TimeTaken.text = "0:0.0";
+                        TimeToCompleteLevel.text = "5 mins";
+
+                        LevelCompleted.gameObject.SetActive(true);
+                        TimeTaken.gameObject.SetActive(true);
+                        TimeToCompleteLevel.gameObject.SetActive(true);
+                        StartGameButton.SetActive(true);
+                    }
+                    break;
+                }
         }
 
         
     }
 
+
+    public void TurnOffObjects()
+    {
+        TimeTaken.gameObject.SetActive(false);
+        TimeToCompleteLevel.gameObject.SetActive(false);
+        LevelCompleted.gameObject.SetActive(false);
+        StartGameButton.SetActive(false);
+    }
 
 }

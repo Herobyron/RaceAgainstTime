@@ -109,21 +109,25 @@ public class LevelManager : MonoBehaviour
                         case (2):
                             {
                                 GameData.LevelTwoTime = CurrentLevelTime;
+                                GameData.LevelTwoComplete = true;
                                 break;
                             }
                         case (3):
                             {
                                 GameData.LevelThreeTime = CurrentLevelTime;
+                                GameData.LevelThreeComplete = true;
                                 break;
                             }
                         case (4):
                             {
                                 GameData.LevelFourTime = CurrentLevelTime;
+                                GameData.LevelFourComplete = true;
                                 break;
                             }
                         case (5):
                             {
                                 GameData.LevelFiveTime = CurrentLevelTime;
+                                GameData.LevelFiveComplete = true;
                                 break;
                             }
                         
@@ -158,18 +162,22 @@ public class LevelManager : MonoBehaviour
                 }
             case (2):
                 {
+                    SceneManager.LoadScene("Level Two");
                     break;
                 }
             case (3):
                 {
+                    SceneManager.LoadScene("Level Three");
                     break;
                 }
             case (4):
                 {
+                    SceneManager.LoadScene("Level Four");
                     break;
                 }
             case (5):
                 {
+                    SceneManager.LoadScene("Level Five");
                     break;
                 }
         }
@@ -202,6 +210,13 @@ public class LevelManager : MonoBehaviour
 
             GameData = data;
         }
+    }
+
+    public void ClearData()
+    {
+        GameData = new Data();
+
+        Save();
     }
 
     public void SetLevelNumber(int LevelNum)

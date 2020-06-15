@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1650,7 +1650,7 @@ PrefabInstance:
     - target: {fileID: 1349488731997526133, guid: f5ea80aa8c9b0da40b13b6f1851a2c5b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 2.4180784e-11
+      value: 2.4180782e-11
       objectReference: {fileID: 0}
     - target: {fileID: 1349488733275977541, guid: f5ea80aa8c9b0da40b13b6f1851a2c5b,
         type: 3}
