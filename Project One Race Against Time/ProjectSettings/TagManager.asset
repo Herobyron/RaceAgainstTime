@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - MovingBlock
+  - PlayerTransform
   layers:
   - Default
   - TransparentFX
