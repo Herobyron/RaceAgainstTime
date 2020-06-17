@@ -13,6 +13,8 @@ public class Bullet : MonoBehaviour
 
     public float DistanceThisFrame;
 
+    public float LifeTime = 10f;
+
     public void Start()
     {
         Direction = TheTarget.position - transform.position;
@@ -31,6 +33,15 @@ public class Bullet : MonoBehaviour
 
         //Vector3.MoveTowards(gameObject.transform.position, TheTarget.position, DistanctThisFrame);
         transform.Translate(Direction.normalized * DistanceThisFrame, Space.World);
+
+
+        if(LifeTime <= 0)
+        {
+            Destroy(gameObject);
+        }
+
+        LifeTime -= Time.deltaTime;
+
     }
 
 
@@ -46,7 +57,15 @@ public class Bullet : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             other.GetComponent<Player>().ApplyDamage();
+
+            foreach(Turret T in FindObjectsOfType<Turret>())
+            {
+                T.CencelInvokes();
+            }
+
+
             Destroy(gameObject);
+
         }
     }
 

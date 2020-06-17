@@ -57,8 +57,11 @@ public class Turret : MonoBehaviour
 
     void UpdateTarget()
     {
-
+        if(GameObject.FindGameObjectWithTag("PlayerTransform").activeSelf)
+        {
             Target = GameObject.FindGameObjectWithTag("PlayerTransform").transform;
+        }
+            
             float DistanceToEnemy = Vector3.Distance(transform.position, Target.position);
 
             if(DistanceToEnemy >= Range)
@@ -77,13 +80,16 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
-        GameObject BulletGameObject = (GameObject)Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
-        Bullet bullet = BulletGameObject.GetComponent<Bullet>();
-
-        if(bullet)
+        if (Target)
         {
-            bullet.Seek(Target);
-        }    
+            GameObject BulletGameObject = (GameObject)Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
+            Bullet bullet = BulletGameObject.GetComponent<Bullet>();
+
+            if (bullet)
+            {
+                bullet.Seek(Target);
+            }
+        }
     }
 
 
@@ -91,6 +97,12 @@ public class Turret : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, Range);
+    }
+
+
+    public void CencelInvokes()
+    {
+        CancelInvoke();
     }
 
 }

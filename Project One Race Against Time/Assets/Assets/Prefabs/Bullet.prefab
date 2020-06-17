@@ -91,7 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27ccac5b646d204d8979b10eb14e0d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 15
+  Direction: {x: 0, y: 0, z: 0}
+  DistanceThisFrame: 0
+  LifeTime: 10
 --- !u!135 &3623688311965137543
 SphereCollider:
   m_ObjectHideFlags: 0
