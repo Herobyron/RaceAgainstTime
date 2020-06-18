@@ -13,6 +13,12 @@ public class DeathBlock : MonoBehaviour
         if(other.tag == "Player")
         {
             other.GetComponent<Player>().ApplyDamage();
+
+            foreach (Turret T in FindObjectsOfType<Turret>())
+            {
+                T.CencelInvokes();
+            }
+
         }
     }
 
