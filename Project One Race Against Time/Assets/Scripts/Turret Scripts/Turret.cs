@@ -63,7 +63,7 @@ public class Turret : MonoBehaviour
         }
             
             float DistanceToEnemy = Vector3.Distance(transform.position, Target.position);
-
+   
             if(DistanceToEnemy >= Range)
             {
                 Target = null;
@@ -72,10 +72,10 @@ public class Turret : MonoBehaviour
             {
                 Target = GameObject.FindGameObjectWithTag("PlayerTransform").transform;
             }
-
-
-
-
+   
+   
+   
+   
     }
 
     void Shoot()

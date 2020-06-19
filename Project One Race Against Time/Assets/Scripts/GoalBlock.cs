@@ -14,6 +14,11 @@ public class GoalBlock : MonoBehaviour
         if (other.tag == "Player")
         {
             FindObjectOfType<LevelManager>().LevelComplete();
+
+            foreach (Turret T in FindObjectsOfType<Turret>())
+            {
+                T.CencelInvokes();
+            }
         }
     }
 
