@@ -123,7 +123,7 @@ public class MainMenuUI : MonoBehaviour
 
                         TimeTaken.text = Mins + ":" + Seconds;
 
-                        TimeToCompleteLevel.text = "4 Mins";
+                        TimeToCompleteLevel.text = "3 Mins";
 
                         LevelCompleted.gameObject.SetActive(true);
                         TimeTaken.gameObject.SetActive(true);
@@ -154,7 +154,7 @@ public class MainMenuUI : MonoBehaviour
 
                         TimeTaken.text = Mins + ":" + Seconds;
 
-                        TimeToCompleteLevel.text = "3 Mins";
+                        TimeToCompleteLevel.text = "5 Mins";
 
                         LevelCompleted.gameObject.SetActive(true);
                         TimeTaken.gameObject.SetActive(true);
@@ -165,7 +165,7 @@ public class MainMenuUI : MonoBehaviour
                     {
                         LevelCompleted.text = "Level InComplete";
                         TimeTaken.text = "0:0.0";
-                        TimeToCompleteLevel.text = "3 mins";
+                        TimeToCompleteLevel.text = "5 mins";
 
                         LevelCompleted.gameObject.SetActive(true);
                         TimeTaken.gameObject.SetActive(true);
@@ -185,7 +185,7 @@ public class MainMenuUI : MonoBehaviour
 
                         TimeTaken.text = Mins + ":" + Seconds;
 
-                        TimeToCompleteLevel.text = "2 Mins";
+                        TimeToCompleteLevel.text = "1 Mins";
 
                         LevelCompleted.gameObject.SetActive(true);
                         TimeTaken.gameObject.SetActive(true);
@@ -196,7 +196,7 @@ public class MainMenuUI : MonoBehaviour
                     {
                         LevelCompleted.text = "Level InComplete";
                         TimeTaken.text = "0:0.0";
-                        TimeToCompleteLevel.text = "5 mins";
+                        TimeToCompleteLevel.text = "1 mins";
 
                         LevelCompleted.gameObject.SetActive(true);
                         TimeTaken.gameObject.SetActive(true);

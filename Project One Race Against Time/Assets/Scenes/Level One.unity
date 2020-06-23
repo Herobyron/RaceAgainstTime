@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -14878,12 +14878,22 @@ PrefabInstance:
     - target: {fileID: 1349488733275977541, guid: f5ea80aa8c9b0da40b13b6f1851a2c5b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000013557214
+      value: 0.000000032795086
       objectReference: {fileID: 0}
     - target: {fileID: 1349488733275977541, guid: f5ea80aa8c9b0da40b13b6f1851a2c5b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000022648704
+      value: -0.000000037479108
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349488733819036125, guid: f5ea80aa8c9b0da40b13b6f1851a2c5b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.002668373
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349488733819036125, guid: f5ea80aa8c9b0da40b13b6f1851a2c5b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0008006062
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5ea80aa8c9b0da40b13b6f1851a2c5b, type: 3}
@@ -15185,7 +15195,7 @@ PrefabInstance:
     - target: {fileID: 2113169110918041095, guid: 2fae19db55486694fbdee3c209305503,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2113169110918041095, guid: 2fae19db55486694fbdee3c209305503,
         type: 3}
@@ -15200,7 +15210,17 @@ PrefabInstance:
     - target: {fileID: 2113169110918041095, guid: 2fae19db55486694fbdee3c209305503,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Save
+      objectReference: {fileID: 0}
+    - target: {fileID: 2113169110918041095, guid: 2fae19db55486694fbdee3c209305503,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: LoadMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2113169110918041095, guid: 2fae19db55486694fbdee3c209305503,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fae19db55486694fbdee3c209305503, type: 3}
@@ -15308,12 +15328,12 @@ PrefabInstance:
     - target: {fileID: 4387471301989572426, guid: 5c87d91982b352b4b9e56e7dc937655d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000046352298
+      value: 0.000000046352298
       objectReference: {fileID: 0}
     - target: {fileID: 4387471301989572426, guid: 5c87d91982b352b4b9e56e7dc937655d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000014830406
+      value: -0.000000014830406
       objectReference: {fileID: 0}
     - target: {fileID: 4387471301989572426, guid: 5c87d91982b352b4b9e56e7dc937655d,
         type: 3}
