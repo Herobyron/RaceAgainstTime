@@ -36,6 +36,10 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private bool IsGrounded;
 
+    [Tooltip("this is the animation controller for the player")]
+    [SerializeField]
+    private Animator Anim = null;
+
     // Update is called once per frame
     void Update()
     {
@@ -43,6 +47,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
         if(IsGrounded && CurrentVelocity.y < 0)
         {
+            Anim.SetBool("Jumping", false);
             CurrentVelocity.y = -2f;
         }
 
@@ -52,6 +57,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
         if(Direction.magnitude >= 0.01f)
         {
+            Anim.SetBool("Running", true);
+            
             float TargetAngle = Mathf.Atan2(Direction.x, Direction.z) * Mathf.Rad2Deg + Camera.eulerAngles.y;
 
             float Angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, TargetAngle, ref TurnSmoothVelocity, TurnSmoothTime);
@@ -61,10 +68,17 @@ public class ThirdPersonMovement : MonoBehaviour
             Vector3 MoveDirection = Quaternion.Euler(0f, TargetAngle, 0f) * Vector3.forward;
             Controller.Move(MoveDirection.normalized * speed * Time.deltaTime);
         }
+        else
+        {
+            Anim.SetBool("Running", false);
+        }
 
         if(Input.GetButtonDown("Jump") && IsGrounded)
         {
             CurrentVelocity.y = Mathf.Sqrt(JumpHieght * -2f * gravity);
+
+            Anim.SetBool("Jumping", true);
+            Anim.SetBool("Running", false);
         }
 
 
